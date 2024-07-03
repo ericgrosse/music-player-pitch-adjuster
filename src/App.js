@@ -100,10 +100,11 @@ const App = () => {
     if (player && player.loaded) {
       if (player.state === 'started') {
         player.stop();
+        setIsPlaying(false);
       } else {
         player.start();
+        setIsPlaying(true);
       }
-      setIsPlaying(player.state === 'started');
     }
   };
 
@@ -145,8 +146,8 @@ const App = () => {
             <input
               id="pitch-slider"
               type="range"
-              min="-12"
-              max="12"
+              min="-100"
+              max="100"
               step="1"
               value={pitch}
               onChange={handlePitchChange}
